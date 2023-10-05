@@ -43,14 +43,14 @@ module.exports =  function(sequelize, dataTypes) {
     Movie.associate = function(models){
         Movie.belongsTo(models.Genre, {
             as: "genre",
-            foreignKey1: "genre_id"
+            foreignKey: "genre_id"
         });
 
         Movie.belongsToMany(models.Actor, {
             as: "actors",
             //tabela intermediaria
             through: "actor_movie",
-            foreignKey1: "movie_id",
+            foreignKey: "movie_id",
             otherKey: "actor_id",
             timeStamps: false
         })

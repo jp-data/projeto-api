@@ -32,7 +32,7 @@ module.exports =  function(sequelize, dataTypes) {
             as: "Movies",
             //tabela intermediaria
             through: "actor_movie",
-            foreignKey1: "actor_movie",
+            foreignKey: "actor_id",
             otherKey: "movie_id",
             timeStamps: false
         })

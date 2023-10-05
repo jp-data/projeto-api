@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class = "forms">
-        <form id="register-movies">
+        <form method="POST" action="/movies/register" id="register-movies" enctype="multipart/form-data">
             <div id="title">
                 <label for="title">Título</label>
                 <input type="text" id="title" name="title">
@@ -22,13 +22,24 @@
             </div>
             <div id="genre-div">
                 <label for="genre">Gênero</label>
-                <input type="text" id="genre" name="genre">
+                <select name="genre_id">
+                    <% for(let i = 0; i < genres.length; i++) { %>
+                    <option value="<%=genres[i].id%>">
+                        <%=genres[i].name%>
+                    </option>
+                    <% } %>
+                </select>
             </div>
             <div id="release-date-div">
                 <label for="release-date">Data de lançamento</label>
                 <input type="text" id="release-date" name="release-date">
             </div>
+            <div id="rating-div">
+                <label for="rating">Nota</label>
+                <input type="text" id="rating" name="rating">
+            </div>
             <div id="register-button-div">
+                <div id="register-button-div">
                 <button id="register-movie" type="submit" title="register">
                     Cadastrar
                 </button>
